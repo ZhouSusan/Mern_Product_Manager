@@ -17,3 +17,8 @@ module.exports.createProduct = (request, response) => {
         .catch(err => response.json(err));
 }
 
+module.exports.getAllProducts = (request, response) => {
+    Product.find({})
+        .then(products => response.json(products))
+        .catch(err => response.json(err))
+}
