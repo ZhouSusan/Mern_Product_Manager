@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import axios from 'axios';
+import styles from './styles.module.css';
 
 const ProductsList = (props) => {
 
@@ -16,13 +17,14 @@ const ProductsList = (props) => {
 
     return (
         <div>
+            <hr></hr>
+            <h1 className={styles.header}>All Products: </h1>
             {
                 props.products.map((item, i) => {
                     return (
-                        <p key={i}>
+                        <p key={i} className={styles.listForm}>
                             <Link to={`/${item._id}`} key={item._id}>{item.title}</Link>
-                            |
-                            <button onClick={(e)=>{deleteProduct(item._id)}}>
+                            <button className={styles.deleteBtn} onClick={(e)=>{deleteProduct(item._id)}}>
                                 Delete
                             </button>
                         </p>

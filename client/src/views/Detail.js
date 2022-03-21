@@ -14,9 +14,9 @@ const Detail = (props) => {
     }, []);
     
     return (
-        <div>
-            <p>Title: {item.title}</p>
-            <p>Price: {item.price}</p>
+        <div style={{marginTop: 200}}>
+            <h1>{item.title}</h1>
+            <p>Price: ${item.price}</p>
             <p>Description: {item.description}</p>
 
             <Link to={"/product/" + item._id + "/edit"}>
