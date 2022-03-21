@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import {Link, useParams, useHistory} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+import { useParams } from "react-router-dom";
+import {useHistory} from "react-router-dom";
     
 const Detail = (props) => {
     const [item, setItem] = useState({})
