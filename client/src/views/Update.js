@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
-import { useParams } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
     
 const Update = (props) => {
     const { id } = useParams();
     const [title, setTitle] = useState('');
     const [price, setPrice] = useState(0);
     const [description, setDescription] = useState('');
+    const history = useHistory();
     
     useEffect(() => {
         axios.get('http://localhost:8000/api/products/' + id)
@@ -25,6 +26,7 @@ const Update = (props) => {
             description
         })
             .then(res => console.log(res))
+            history.push("/")
             .catch(err => console.error(err));
     }
     
@@ -53,8 +55,9 @@ const Update = (props) => {
                     value={description} 
                     onChange={(e) => { setDescription(e.target.value) }} />
                 </p>
-                <input type="submit" />
+                <input style={{marginTop: 20, marginBottom: 20}} type="submit" />
             </form>
+            <Link to={"/"}>Go Home</Link>
         </div>
     )
 }
